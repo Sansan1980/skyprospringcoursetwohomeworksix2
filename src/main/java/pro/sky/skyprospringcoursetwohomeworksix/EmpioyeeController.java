@@ -22,8 +22,8 @@ public class EmpioyeeController {
     }
 
     @GetMapping(path = ("/findEmployee"))
-    public String findEmployee(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "surname", required = false) String surname) {
-        return employeeService.addEmployee(name, surname);
+    public Employee findEmployee(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "surname", required = false) String surname) {
+        return employeeService.findEmployee(name, surname);
     }
 
 
