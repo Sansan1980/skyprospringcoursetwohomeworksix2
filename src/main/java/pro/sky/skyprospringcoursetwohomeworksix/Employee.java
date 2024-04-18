@@ -1,11 +1,13 @@
 package pro.sky.skyprospringcoursetwohomeworksix;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Objects;
 
 public class Employee {
 
-    private String name;
-    private String surname;
+    public String name;
+    public String surname;
 
 
     public Employee(String name, String surname) {
@@ -22,7 +24,7 @@ public class Employee {
         return surname;
     }
 
-
+    @JsonIgnore
     public String getFulName() {
 
         return name + ", " + surname;

@@ -9,11 +9,23 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private static List<Employee> employeesList = new ArrayList<>();
+
+
+
+
     private final int numberEmployees = 11;
 
+
     public String addEmployee(String name, String surname) {
-        employeesList.add(new Employee(name, surname));
-        return name + " " + surname;
+        Employee employee = new Employee(name, surname);
+        if (employeesList.size() >= numberEmployees) {
+            throw new EmployeeStorageIsFullException();
+        }
+        if (employeesList.contains(employee)) {
+            throw new EmployeeAlreadyAddedException();
+        }
+        employeesList.add(employee);
+        return employee.getFulName();
     }
 
     public Employee findEmployee(String name, String surname) {
@@ -26,12 +38,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public void deleteEmployee(String name, String surname) {
-        employeesList.remove(new Employee(name, surname));
+        Employee employee = new Employee(name, surname);
+        if (!employeesList.contains(employee)) {
+            throw new EmployeeNotFoundException();
+        }
+        employeesList.remove(employee);
 
     }
 
-    public String printData() {
-        return employeesList.toString();
+    public List<Employee> printData() {
+        return employeesList;
     }
 
     //--//--

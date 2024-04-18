@@ -1,5 +1,7 @@
 package pro.sky.skyprospringcoursetwohomeworksix;
 
+import java.util.List;
+
 public interface EmployeeService {
     public String addEmployee(String name, String surname) ;
 
@@ -8,5 +10,5 @@ public interface EmployeeService {
 
     public void deleteEmployee(String name, String surname);
 
-    public String printData();
+    public List<Employee> printData();
     }
