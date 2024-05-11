@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Employee {
 
-    public String name;
-    public String surname;
+    private String name;
+    private String surname;
 
 
     public Employee(String name, String surname) {
